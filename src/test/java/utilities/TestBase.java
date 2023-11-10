@@ -37,6 +37,7 @@ public abstract class TestBase {
         select.selectByValue(option);
     }
 
+
     //Hard Wait
     public void waitForSecond(int second){
         try {
@@ -45,4 +46,15 @@ public abstract class TestBase {
             throw new RuntimeException(e);
         }
     }
+
+    //Window Handles
+    public void window(int index){
+        driver.switchTo().window(driver.getWindowHandles().toArray()[index].toString());
+    }
+
+    //iframe index
+    public void frameIndex(int index){
+        driver.switchTo().frame(index);
+    }
+
 }

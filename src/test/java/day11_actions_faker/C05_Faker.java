@@ -47,7 +47,5 @@ public class C05_Faker {
         ve olusturmus oldugumuz objeyi faker constructor parantezi icinde belirtiriiz
         bu sayede belirtilen dile ozel datalar elde edebiliriz
          */
-
-
     }
 }

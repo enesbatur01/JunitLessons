@@ -38,7 +38,7 @@ public class C01_FileExists {
         //Bu yol her kullanici icin farklidir
         //Mesela kullanici adi mehmet olan bir bilgisayar icin bu yol C:\Users\mehmet
         String userHome = System.getProperty("user.home");
-        System.out.println(userHome);//C:\Users\mua
+        System.out.println(userHome);//C:\Users\Melio
 
 
         //Bilgisayarimizdaki herhangi bir dosyanin varligini test edelim

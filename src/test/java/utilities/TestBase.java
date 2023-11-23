@@ -6,10 +6,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -132,6 +129,41 @@ public abstract class TestBase {
             throw new RuntimeException(e);
         }
 
+    }
+
+    //JSexecutor click method
+    public void jsClick(WebElement webElement){
+        try {
+            webElement.click();
+        }catch (Exception e){
+            JavascriptExecutor jse = (JavascriptExecutor) driver;
+            jse.executeScript("arguments[0].click();",webElement);
+        }
+
+    }
+
+    //JSexecutor Scroll Webelement
+    public void jsScroll(WebElement webElement){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",webElement);
+    }
+
+    //Jsexecutor ScrollToEnd
+    public void jsScrollToEnd(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollTo(0,document.body.scrollHeight)");
+    }
+
+    //Jsexecutor ScrollToHome
+    public void jsScrollToHome(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollTo(0,-document.body.scrollHeight)");
+    }
+
+    //JSexecutor SendKeys
+    public void jsSendKeys(String message,WebElement webElement){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].value='"+message+"'",webElement);
     }
 
 }

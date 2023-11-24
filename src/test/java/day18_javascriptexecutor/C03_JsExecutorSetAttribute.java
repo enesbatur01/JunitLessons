@@ -30,7 +30,19 @@ public class C03_JsExecutorSetAttribute extends TestBase {
         WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
 
         jsSendKeys("selenium",searchBox);
+    }
+    @Test
+    public void test03() {
+        //amazona gidelim
+        driver.get("https://amazon.com");
 
+        //arama kutusu id attribute degerini ismimiz ile degistirelim
+        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('id','enes');",searchBox);
+
+        //degistirmis oldugumuz id ile arama kutusunu locate ederek java yazalim
+        driver.findElement(By.id("enes")).sendKeys("gönder");
 
     }
 }
